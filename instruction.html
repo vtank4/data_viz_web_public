@@ -1,0 +1,121 @@
+<!--Author: Ba Viet Anh Nguyen
+    Create Date: 22/05/2024
+    Lastest Update: 01/06/2024-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport for responsive web page-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--title for the page-->
+    <title>Instructions</title>
+    <!--CSS file-->
+    <link href="style/assignment2.css" rel="stylesheet" />
+    <!--javascript file-->
+    <script src="javascript/instruction.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <!--Logo-->
+        <a href="instruction.html" id="logo-link"><img src="Image/logo.png" alt="Logo" style="height: 50px;"></a>
+        <div class="nav-container">
+            <!--Navigator-->
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="instruction.html">Instruction</a></li>
+                    <li class="nav-item"><a href="assignment2.html">Visualization 1</a></li>
+                    <li class="nav-item"><a href="alcohol.html">Visualization 2</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!--container for whole instruction elements-->
+    <div class="content-instruction">
+        <section id="instruction">
+            <!--heading for the page-->
+            <h1>Instruction</h1>
+            <!--container for context of visualizations-->
+            <div class="instruction-section" id="context">
+                <h3>Context of Visualizations</h3>
+                <p>Alcohol consumption is a critical public health issue, significantly impacting global mortality and
+                    health conditions such as liver disease, cardiovascular diseases, and various cancers. To reduce
+                    alcohol-related harm and improve health outcomes, it is essential for countries to understand and
+                    monitor alcohol consumption patterns and their effects.</p>
+                <p>Analyzing alcohol consumption trends and mortality rates is crucial for developing effective public
+                    health policies and interventions. These visualizations highlight the correlation between alcohol
+                    consumption and total deaths, providing valuable insights for public health officials, researchers,
+                    policymakers, and the general public.</p>
+                <p>An in-depth understanding of regional and temporal trends in alcohol consumption helps identify
+                    significant changes and global patterns. This information supports the creation of targeted health
+                    campaigns and policies, ensuring informed decision-making. Additionally, by recognizing the impact
+                    of public policies and health campaigns on alcohol use, these visualizations contribute to the
+                    development of strategies aimed at reducing alcohol-related health risks and improving overall
+                    public health.</p>
+            </div>
+            <!--container for general instruction-->
+            <div class="instruction-section">
+                <h3>General Instructions</h3>
+                <p>You can click the logo to come back to Instruction webpage.</p>
+                <p>For a better view of the visualizations, you can use the fullscreen mode. Press F11 or click the
+                    button below to enter/ exit fullscreen mode.</p>
+                <button id="fullscreen-btn" class="fullscreen-btn">Press F11 or click here to use Fullscreen</button>
+            </div>
+            <!--container for scatter plot instruction-->
+            <div class="instruction-section" id="scatter-instruction">
+                <h3>Introduction for Scatter Plot (Visualization 1)</h3>
+                <p>This visualization shows the relationship between the total number of deaths and alcohol consumption
+                    per capita in various regions, with the radius of the circle representing the number of total
+                    deaths. Use the filters to view data for specific regions or time periods:</p>
+                <ul>
+                    <li><strong>Play Button <img src="Image/play_icon.jpg" style="height:20px;width:20px">:</strong>
+                        Animates (Play) the scatter plot over the years.</li>
+                    <li><strong>Pause Button <img src="Image/images.png"
+                                style="height:17px;width:17px; border-radius:10px">:</strong> Pauses the animation.</li>
+                    <li><strong>Reset Button <img src="Image/reset_icon.png" style="height:20px;width:20px">:</strong>
+                        Resets the visualization to the initial state.</li>
+                    <li><strong>Slider:</strong> Manually select a year to view data.</li>
+                    <li><strong>Region Filter:</strong> Select a region to filter the data shown in the scatter plot.
+                        The color for each region is based on the Olympic flag <img src="Image/olympic.png"
+                            style="height:17px;width:30px; border-radius:10px"> for better observation.</li>
+                </ul>
+                <p>When you hover over a circle in the scatter plot, information about the country, region, total
+                    deaths, and alcohol consumption for that year will be displayed. Other circles will blur to provide
+                    a better view. <br>You can choose more than one region filter.</p>
+                <!--container for button go to visualization 1-->
+                <div class="button-container">
+                    <button class="nav-to-viz" id="viz1-btn" onclick="location.href='assignment2.html'">Go to
+                        Visualization 1</button>
+                    <img src="Image/preview_scatter_plot.png" id="preview-viz1" class="preview hidden"
+                        alt="Preview of Scatter Plot">
+                </div>
+            </div>
+            <!--container for line chart instruction-->
+            <div class="instruction-section" id="line-instruction">
+                <h3>Introduction for Line Chart (Visualization 2)</h3>
+                <p>This visualization shows the trend of alcohol consumption in OECD countries from 2010 to 2022. Use
+                    the filters to view data for specific countries or time periods:</p>
+                <ul>
+                    <li><strong>Country Select:</strong> Choose one or multiple countries to view their data. Hold the
+                        CTRL key to select multiple countries. Countries in the same regions will have the same color
+                        based on Olympic flag <img src="Image/olympic.png"
+                            style="height:17px;width:30px; border-radius:10px">.</li>
+                    <li><strong>Start Year:</strong> Input the starting year for the data range.</li>
+                    <li><strong>End Year:</strong> Input the ending year for the data range.</li>
+                </ul>
+                <p>When you hover over the dots on the line of each country, data about alcohol consumption for that
+                    year will appear.</p>
+                <!--container for button go to visualization 2-->
+                <div class="button-container">
+                    <button class="nav-to-viz" id="viz2-btn" onclick="location.href='alcohol.html'">Go to Visualization
+                        2</button>
+                    <img src="Image/preview_line_chart.png" id="preview-viz2" class="preview hidden"
+                        alt="Preview of Line Chart">
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

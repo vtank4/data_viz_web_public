@@ -1,0 +1,119 @@
+<!--Author: Ba Viet Anh Nguyen
+    Create Date: 25/04/2024
+    Lastest Update: 01/06/2024-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Add a viewport for responsive web-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatter Plot Visualization</title>
+    <!-- Link to CSS file -->
+    <link href="./style/assignment2.css" rel="stylesheet" />
+    <!-- Link to D3.js library -->
+    <script type="text/javascript" src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script>
+    <!-- Link to external JavaScript file -->
+    <script type="text/javascript" src="./javascript/scatter_plot.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <!--Logo-->
+        <a href="instruction.html"><img src="Image/logo.png" alt="Logo" style="height: 60px;"></a>
+        <div class="nav-container">
+            <!-- Navigator -->
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="instruction.html">Instruction</a></li>
+                    <li class="nav-item"><a href="index.html">Visualization 1</a></li>
+                    <li class="nav-item"><a href="alcohol.html">Visualization 2</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content (scatter plot, button, slider and region filter) -->
+    <div class="content">
+        <section id="visualization">
+            <h2>Relationship between Number of total of deaths and Alcohol Consumption from 2010 to 2021</h2>
+            <!-- container for Play/Pause/Reset/Slider section -->
+            <div class="button-section">
+                <!-- Play Button Class -->
+                <div class="play_button">
+                    <button type="submit" style="background-color:transparent; border-color:transparent;" id="play"
+                        onclick="adjust_button(this.id)">
+                        <img src="Image/play_icon.jpg" style="height:20px;width:20px" alt="Submit">
+                    </button>
+                </div>
+                <!-- Pause Button Class -->
+                <div class="pause_button">
+                    <button type="submit"
+                        style="background-color:transparent; border-color:transparent;visibility: hidden;" id="pause"
+                        onclick="adjust_button(this.id)">
+                        <img src="Image/images.png" style="height:17px;width:17px; border-radius:10px" alt="Submit">
+                    </button>
+                </div>
+                <!-- Reset Button Class -->
+                <div class="reset_button">
+                    <button type="submit"
+                        style="background-color:transparent; border-color:transparent;visibility: hidden;" id="reset"
+                        onclick="adjust_button(this.id)">
+                        <img src="Image/reset_icon.png" style="height:20px;width:20px" alt="Submit">
+                    </button>
+                </div>
+                <!-- Slider. Min = 2010, Max = 2021. Call slidermove() function on input change -->
+                <div class="slider">
+                    <input type="range" id="year" value="2010" min="2010" max="2021" oninput="slidermove(this.value)"
+                        style="width: 550px">
+                </div>
+            </div>
+            <!-- Visualization container to hold the scatter plot and the region filter legend -->
+            <div class="visualization-container">
+                <!--container for scatter plot -->
+                <div id="scatterplot"></div>    
+                <!--container for region filter-->                    
+                <div class="legend">
+                    <div class="blank">Region Filter<br></div>
+                    <!-- Buttons for filtering data by region. When press filter button,function legend() is called to handle region selection -->
+                    <div class="leg">
+                        <!--Asian Countries filter-->
+                        <button type="submit" value="Asia" style="background-color:#edf350;" id="leg_asia"
+                            onclick="legend(this.value)">
+                        </button> Asia
+                    </div>
+                    <div class="leg">
+                        <!--Oceania Countries filter-->
+                        <button type="submit" value="Oceania" style="background-color:#20fe08;" id="leg_oceania"
+                            onclick="legend(this.value)">
+                        </button> Oceania
+                    </div>
+                    <div class="leg">
+                        <!--Europe Countries filter-->
+                        <button type="submit" value="Europe" style="background-color:#0814ee;" id="leg_eu"
+                            onclick="legend(this.value)">
+                        </button> Europe
+                    </div>
+                    <div class="leg">
+                        <!--Africa Countries filter-->
+                        <button type="submit" value="Africa" style="background-color:#0a0a04;" id="leg_af"
+                            onclick="legend(this.value)">
+                        </button> Africa
+                    </div>
+                    <div class="leg">
+                        <!--America Countries filter-->
+                        <button type="submit" value="America" style="background-color:#f80314;" id="leg_am"
+                            onclick="legend(this.value)">
+                        </button> America
+                    </div>
+                    <div class="clear-filter-section">
+                        <!-- Button to clear the region filter. When press, function clearFilter() is called to clear the filter selection -->
+                        <button class="clear-filter" onclick="clearFilter()">Clear Filter</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

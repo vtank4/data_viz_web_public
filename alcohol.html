@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--apply viewport for responsive web-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Title-->
+    <title>Alcohol Consumption Line Graph</title>
+    <!--CSS file-->
+    <link rel="stylesheet" href="style/assignment2.css">
+</head>
+<body>
+    <header>
+        <!--Logo-->
+        <a href="instruction.html"><img src="Image/logo.png" alt="Logo" style="height: 60px;"></a>
+        <div class="nav-container">
+            <!-- Navigator -->
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="instruction.html">Instruction</a></li>
+                    <li class="nav-item"><a href="assignment2.html">Visualization 1</a></li>
+                    <li class="nav-item"><a href="alcohol.html">Visualization 2</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!--container holds the title for the line chart-->
+    <div class="title-container">
+        <h2>Trend of the Alcohol Consumption in OECD Countries from 2010 to 2021</h2> <!-- Chart title -->
+    </div>
+    <!--container holds the chart and filters-->
+    <div class="container">
+        <!--container for chart-->
+        <div id="chart"></div>
+        <!--container for filters-->
+        <div class="controls">
+            <h2>Select Country</h2>
+            <select id="country-select" multiple>
+                <!-- Options will be dynamically added by JavaScript -->
+            </select>
+            <div class="year-inputs">
+                <h2>Type in Year From 2010 to 2021</h2>
+                <!--start year filter-->
+                <div>
+                    <label for="start-year">Start Year:</label>
+                    <input type="number" id="start-year" min="2010" max="2021" step="1" value="2010">
+                </div>
+                <!--end year filter-->
+                <div>
+                    <label for="end-year">End Year:</label>
+                    <input type="number" id="end-year" min="2010" max="2021" step="1" value="2021">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="javascript/alcohol.js"></script> <!-- JavaScript file for chart functionality -->
+</body>
+</html>

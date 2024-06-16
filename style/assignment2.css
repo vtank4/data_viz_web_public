@@ -1,0 +1,468 @@
+/*
+Author: Ba Viet Anh Nguyen
+Date: 10/05/2024
+Last Update: 31/05/2024
+*/
+
+/* Global Styles */
+html {
+    min-width: 500;
+    max-width: 960;
+}
+
+/* change background image */
+body {
+    font-family: Arial, sans-serif; /*Default font for the website */
+    margin: 0;
+    padding: 0;
+    background-image: url('background.jpg');
+    /* path to the background image */
+    background-size: cover;
+    /* Ensure the background image covers the entire screen */
+    background-repeat: no-repeat;
+    /* Prevent the image from repeating */
+    background-attachment: fixed;
+    /* Make the background image fixed when scrolling */
+    background-position: center center;
+    /* Center the background image */
+    color: #333;
+    /* Ensure the text color remains readable */
+}
+
+/* CSS for header */
+header {
+    background-color: #fff; /* background color for header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* subtle shadow for the header */
+    padding: 10px 40px;
+    display: flex; /* Flexbox layout for the header */
+    justify-content: space-between; /* Space between header items */
+    align-items: center; /* Center align header items */
+    position: fixed; /* Fix the header at the top */
+    width: 100%; /* Full width for the header */
+    top: 0;
+    z-index: 1000; /* Ensure header stays on top */
+}
+
+/* Css for nav container */
+.nav-container {
+    display: flex; /* Flexbox layout for the navigation container */
+    justify-content: center;
+    width: 100%; /* Full width for the navigation container */
+}
+/* Navigation List */
+.nav-list {
+    list-style-type: none; /* Remove bullet points from the list */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Flexbox layout for the navigation list */
+    justify-content: center;
+}
+/* Navigation Items */
+.nav-item {
+    margin-right: 100px; /* Space between navigation items */
+}
+
+.nav-item:last-child {
+    margin-right: 0; /* Remove margin for the last item */
+}
+
+.nav-item a {
+    text-decoration: none; /* Remove underline from links */
+    color: #333;
+    font-weight: bold; 
+    font-family: Bebas Neue;
+    font-size: 25px; /* font size for link */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-item a:hover {
+    color: #ce5c42; /* Hover color for links */
+}
+/* Content Styles */
+.content {
+    padding-top: 80px; /* To ensure content does not overlap with fixed header */
+}
+/* Visualization Container */
+.visualization-container {
+    display: flex;
+    align-items: flex-start; /* Align items to the start */
+}
+/*CSS for section */
+section {
+    padding: 20px 40px; /* Padding inside sections */
+    margin: 20px; /* Margin around sections */
+}
+
+section h2 {
+    margin-top: 0;
+}
+
+/* Css for h2 heading */
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 10px;
+    display: inline-block; /* Display inline-block */
+}
+
+/* Axis Styles */
+.axis path,
+.axis line {
+    fill: none; /* No fill for axis lines */
+    stroke: rgb(0, 0, 0); /* Black stroke color for axis lines */
+    shape-rendering: crispEdges; /* Ensure crisp edges for axis lines */
+}
+
+/* CSS Configuration for Floating Year Text on the graph */
+.year {
+    font-size: 180px;
+    font-family: Monaco;
+    font-variant-numeric: tabular-nums; /* Tabular numerals for alignment */
+    opacity: 0.2;
+}
+
+/* CSS for the Axis Texts (Labels) */
+.axis text {
+    font-family: "Verdana", cursive;
+    font-size: 12px;
+}
+
+/* CSS for the class button-section (play/pause/reset buttons) */
+.button-section {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* CSS for play button */
+.play_button {
+    margin-left: 15px;
+    cursor: pointer; /* Pointer cursor for play buttons */
+}
+
+/* CSS for pause_button */
+.pause_button {
+    margin-left: 10px;
+    cursor: pointer; /* Pointer cursor for pause buttons */
+}
+
+/* CSS for reset_button */
+.reset_button {
+    margin-left: 10px;
+    cursor: pointer; /* Pointer cursor for reset buttons */
+}
+
+/* CSS Slider Properties */
+.slider {
+    margin-left: 10px;
+    cursor: pointer;
+    width: 550px;
+}
+
+/* add margin right for button and slider */
+.play_button,
+.pause_button,
+.reset_button,
+.slider {
+    margin-right: 10px;
+}
+
+/* Legend section division properties */
+.legend {
+    margin-left: 20px;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for legend */
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    display: flex;
+    flex-direction: column; /* Column layout for legend items */
+    justify-content: flex-start; /* Align items to the start */
+    height: 250px; /* Fixed height for legend */
+}
+/* CSS for region filter name of region */
+.legend .blank {
+    font-weight: bold;
+    font-size: 14px; /* Font size for legend labels */
+    margin-bottom: 5px;
+}
+/* CSS for lengend items */
+.leg {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 5px;
+}
+/* CSS for region filter buttons */
+.leg button {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    border: none; /* Remove border for legend buttons */
+    border-radius: 50%; /* Rounded buttons */
+    cursor: pointer;
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+/* CSS for region filter buttons when hover */
+.leg button:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
+/* CSS for text in Region Filter */
+.leg .leg_text {
+    font-family: "Verdana", sans-serif; /* Font family for legend text */
+    font-size: 12px;
+    color: #333;
+}
+/* CSS for tooltip for scatter_plot */
+.tooltip {
+    position: absolute; /* Absolute positioning */
+    text-align: left; /* Left align text */
+    width: auto;
+    height: auto;
+    padding: 10px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none; /* Disable pointer events */
+    opacity: 0.8;
+}
+
+/* CSS for Clear Filter button */
+.clear-filter {
+    background-color: #b2be34;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* CSS for hover clear filter */
+.clear-filter:hover {
+    background-color: #c9302c;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hover shadow effect */
+}
+
+/* move the clear filter section to the center */
+.clear-filter-section {
+    text-align: center; /* Center align text */
+}
+/* CSS for blur another when hover one circle */
+.blur {
+    opacity: 0.2; /* Reduce opacity for blur effect */
+}
+
+
+
+/*-------- CSS for Line Chart visualization ---------------- */
+.container { 
+    display: flex; /* Flexbox layout for container */
+    justify-content: center; /* Center align items */
+    align-items: flex-start; /* Align items to the start */
+    margin-top: 20px;
+    padding: 20px;
+}
+
+#chart {
+    flex: 1; /* Flexible width for chart */
+    padding: 20px; /* Padding inside chart */
+}
+/* Title Container */
+.title-container {
+    text-align: left; /* Left align text */
+    margin-top: 80px; /* Adjust to ensure it is visible and not overlapped by the header */
+}
+/* CSS for title for line chart */
+.title-container h2 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin: 30px 0 0 70px;
+    text-align: center;
+    padding-bottom: 10px;
+    display: inline-block; /* Display inline-block */
+}
+/* Controls for Line Chart ( select country and input year) */
+.controls {
+    margin-left: 20px; /* Margin-left for spacing */
+    max-width: 300px; /* Maximum width for controls */
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for controls */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* CSS for heading of the control */
+.controls h2 {
+    text-align: left;  /* Left align text */
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 10px;
+}
+/* CSS for select country and input year */
+.controls select,
+.controls input {
+    width: 100%; /* Full width for select and input */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    background: #fafafa; /* Background color for select and input */
+}
+/* CSS for select country and input year when focus */
+.controls select:focus,
+.controls input:focus {
+    border-color: #007bff; /* Border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+/* CSS for class 'year-input' */
+.year-inputs div {
+    margin-bottom: 10px;
+}
+/* CSS for label 'start year' and 'end year' */
+.label {
+    font-size: 1em;
+    color: #555;
+}
+/* CSS for line in line chart */
+.line {
+    fill: none;
+    stroke-width: 2px;
+}
+/* CSS for the dots in line */
+.data-point {
+    stroke-width: 2px;
+}
+/* CSS for the tooltip for the line chart */
+.tooltip-line {
+    font-size: 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    pointer-events: none;
+}
+/*CSS for the country label */
+.country-label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+
+/* --------------------- CSS for Instruction webpage -----------------------*/
+
+/* CSS for the instruction content */
+.content-instruction {
+    padding-top: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+/* CSS for the heading 1 */
+h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-transform: uppercase; /* uppercase for all the h1 text */
+    letter-spacing: 2px;
+    border-bottom: 3px solid #ce5c42;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+/* CSS for all instruction-section class */
+.instruction-section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: left;
+    max-width: 800px;
+    margin: 20px auto; /* Center align section with auto margin */
+}
+/* CSS for instruction-section heading 3 */
+.instruction-section h3 {
+    margin-top: 0;
+}
+/* CSS for class button-container */
+.button-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between items */
+    position: relative; /* Relative positioning */
+}
+/* CSS for class nav-to-viz, fullscreen-btn when not hovering */
+.nav-to-viz, .fullscreen-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none; /* No border for buttons */
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    text-align: center;
+    flex-shrink: 0;
+}
+/* CSS for class nav-to-viz, fullscreen-btn when hovering */
+.nav-to-viz:hover, .fullscreen-btn:hover {
+    background-color: #ce5c42; /* Hover background color */
+} 
+/* CSS for the preview image when hover go to visualization button */
+.preview {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin-left: 20px; /* Position next to the button */
+    opacity: 0;
+    visibility: hidden; /* Hide by default */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for visibility */
+}
+/* When hover the button-container, show the preview image */
+.button-container:hover .preview {
+    opacity: 1;
+    visibility: visible;
+}
+/* Tooltip for Instructions */
+.tooltip-instruction {
+    position: relative; /* Relative positioning */
+    cursor: pointer;
+}
+/* ::after pseudo-element to display tooltip text in instruction page */
+.tooltip-instruction::after {
+    content: attr(data-tooltip);
+    position: absolute; /* Tooltip is absolutely positioned above the element */
+    background: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap; /* White-space set to nowrap to prevent text wrapping */
+    z-index: 10; /* High z-index to ensure tooltip is on top */
+    opacity: 0;
+    transition: opacity 0.3s;
+    bottom: 125%; /* Position above the element with the bottom: 125% */
+    left: 50%;
+    transform: translateX(-50%); /* Horizontally centered with left: 50% and translateX(-50%) */
+    pointer-events: none;
+}
+/* show the tooltip on hover then changes the opacity to 1 when hovering over the element and smooth transition from hidden to visible */
+.tooltip-instruction:hover::after {
+    opacity: 1;
+}
+/* CSS hidden class to sets display to none to completely hide the element from the layout */
+.hidden {
+    display: none;
+}
